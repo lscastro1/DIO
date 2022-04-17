@@ -1,0 +1,39 @@
+# Configurando chave ssh github
+
+$ ssh-keygen -t ed25519 -C seuEmail
+enter
+criar uma senha
+ir até o diretorio onde a chave foi criada
+$ ls
+$cat id_ed25519.pub
+copiar a chave e colar no github
+inicializar o ssh agent
+$ eval $(ssh-agent -s)
+$ ssh-add
+passar a chave privada
+fim
+############################################################
+# Configurando repositório
+
+Dentro do repositório
+$ git init
+pode usar ls -a para listar arquivos ocultos e var a pasta .git
+
+A primeira coisa que você deve fazer ao instalar Git é configurar seu nome de usuário e endereço de e-mail. Isto é importante porque cada commit usa esta informação, e ela é carimbada de forma imutável nos commits que você começa a criar:
+
+$ git config --global user.name "Fulano de Tal"
+$ git config --global user.email fulanodetal@exemplo.br
+
+Reiterando, você precisará fazer isso somente uma vez se tiver usado a opção --global, porque então o Git usará esta informação para qualquer coisa que você fizer naquele sistema.
+
+Se você quiser substituir essa informação com nome diferente para um projeto específico, você pode rodar o comando sem a opção --global dentro daquele projeto.
+####################################################################
+# Salvando alteração e commitando
+
+$ git add * [salva todas as alerações feitas] ou git add nomeArquivo
+$ git commit -m "sua mensagem"
+###################################################################
+# Fazendo push do repositório
+
+$ git remote add origin(esse é um apelido do link do github poderia ser qualquer coisa mas por conveção usa origin) HTTPSdoRepositorio
+$ git push origin master
